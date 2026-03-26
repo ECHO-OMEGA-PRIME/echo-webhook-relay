@@ -1,0 +1,28 @@
+name = "echo-webhook-relay"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "echo-webhook-relay"
+database_id = "ea88cf74-1814-4efd-acf8-c73de93b9117"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "8595e79e71444131b87309cb52ae2740"
+
+[[services]]
+binding = "SHARED_BRAIN"
+service = "echo-shared-brain"
+
+[[services]]
+binding = "ALERT_ROUTER"
+service = "echo-alert-router"
+
+[[services]]
+binding = "SWARM_BRAIN"
+service = "echo-swarm-brain"
+
+[triggers]
+crons = ["*/15 * * * *", "0 */6 * * *", "0 3 * * *"]
