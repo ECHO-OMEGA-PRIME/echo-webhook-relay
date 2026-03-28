@@ -1094,7 +1094,8 @@ async function handleRequest(request: Request, env: Env, ctx: ExecutionContext):
   if (method === 'OPTIONS') return cors();
 
   // Health — no auth
-  if (path === '/health' && method === 'GET') return handleHealth(env);
+    if (path === '/') return json({ service: 'echo-webhook-relay', status: 'operational' });
+if (path === '/health' && method === 'GET') return handleHealth(env);
 
   // Webhook receive — uses signature verification, not API key
   const webhookMatch = path.match(/^\/webhook\/([a-z]+)$/);
