@@ -26,3 +26,7 @@ service = "echo-swarm-brain"
 
 [triggers]
 crons = ["*/15 * * * *", "0 */6 * * *", "0 3 * * *"]
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "echo_metrics"
